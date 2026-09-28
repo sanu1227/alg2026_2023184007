@@ -3,9 +3,11 @@ def selection_sort(values):
     # 남은 구간에서 최소값의 위치를 찾은 뒤 한 번 이동한다.
     for position in range(len(values)):
         smallest = position
+        minimum = values[position]
         for scan in range(position + 1, len(values)):
-            if values[scan] < values[smallest]:
+            if values[scan] < minimum:
                 smallest = scan
+                minimum = values[scan]
         values[position], values[smallest] = values[smallest], values[position]
     return values
 
