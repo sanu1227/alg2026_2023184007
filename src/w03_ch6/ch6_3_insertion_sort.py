@@ -7,9 +7,16 @@ vis = va.visualizer("insertion_sort")
 
 
 def insertion_sort(values):
-    if len(values) > 1:
-        vis.mark_end(1)
-        vis.compare(0, 1)
+    for position in range(1, min(2, len(values))):
+        cursor = position
+        vis.mark_end(position)
+        while cursor > 0:
+            previous = cursor - 1
+            vis.compare(previous, cursor)
+            if values[previous] > values[cursor]:
+                vis.swap(previous, cursor)
+                values[previous], values[cursor] = values[cursor], values[previous]
+            cursor -= 1
     return values
 
 
