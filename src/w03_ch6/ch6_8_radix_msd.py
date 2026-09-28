@@ -60,6 +60,8 @@ def radix_sort_msd(values):
             vis.accumulate_bucket(bucket - 1, bucket, counts)
         vis.finish_accumulate(counts)
         ends = list(counts)
+        result = [None] * len(values)
+        vis.init_result(result)
     return values
 
 
