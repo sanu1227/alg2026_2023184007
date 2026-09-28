@@ -6,8 +6,18 @@ DATA_FILE = "data/elementary_sort.json"
 vis = va.visualizer("shell_sort")
 
 
+GAPS = [15, 7, 3, 1]
+
+
+def gaps(count):
+    for index, gap in enumerate(GAPS):
+        if gap < count // 2:
+            return GAPS[index:]
+    return [1]
+
+
 def shell_sort(values):
-    for gap in [3, 1]:
+    for gap in gaps(len(values)):
         vis.set_gap(gap)
         for offset in range(gap):
             vis.set_group(offset)
