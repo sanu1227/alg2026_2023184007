@@ -16,6 +16,7 @@ def bubble_sort(values):
             if values[index] > values[index + 1]:
                 vis.swap(index, index + 1)
                 values[index], values[index + 1] = values[index + 1], values[index]
+        vis.mark_sorted(stop)
     return values
 
 
