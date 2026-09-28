@@ -47,6 +47,8 @@ def radix_sort_msd(values):
         left = e_start
         right = e_stop
         vis.push(left, right, 1)
+        counts = [0] * 27
+        vis.init_counts(counts)
     return values
 
 
