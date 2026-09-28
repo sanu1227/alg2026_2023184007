@@ -20,6 +20,8 @@ def count_sort(values):
         counts[bucket] += counts[bucket - 1]
         vis.accumulate(bucket - 1, bucket, counts)
     vis.finish_accumulate(counts)
+    result = [None] * len(values)
+    vis.init_result(result)
     return values
 
 
