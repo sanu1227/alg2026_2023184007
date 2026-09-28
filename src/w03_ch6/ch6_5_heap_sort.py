@@ -20,6 +20,7 @@ def heapify(values, root, size):
     if values[root] < values[larger]:
         vis.swap(root, larger)
         values[root], values[larger] = values[larger], values[root]
+        heapify(values, larger, size)
 
 
 def heap_sort(values):
