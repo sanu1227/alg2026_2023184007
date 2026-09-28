@@ -33,6 +33,7 @@ def heap_sort(values):
     for last in range(size - 1, max(size - 2, 0), -1):
         vis.swap(0, last)
         values[0], values[last] = values[last], values[0]
+        vis.set_tree_size(last)
     return values
 
 
