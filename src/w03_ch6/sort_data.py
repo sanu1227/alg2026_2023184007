@@ -14,6 +14,5 @@ def nearly_sorted_values(count):
     return values
 
 
-if __name__ == "__main__":
-    print("일반:", random_values(10))
-    print("거의 정렬:", nearly_sorted_values(10))
+def limited_random_values(count, value_count):
+    return [random.randrange(value_count) for _ in range(count)]
