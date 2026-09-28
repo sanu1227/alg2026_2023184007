@@ -7,7 +7,7 @@ vis = va.visualizer("shell_sort")
 
 
 def shell_sort(values):
-    for gap in [3]:
+    for gap in [3, 1]:
         vis.set_gap(gap)
         for offset in range(gap):
             vis.set_group(offset)
