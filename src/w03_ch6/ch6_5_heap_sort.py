@@ -27,7 +27,7 @@ def heap_sort(values):
     vis.build_tree()
     size = len(values)
     if size > 1:
-        root = 0
+        root = size // 2 - 1
         vis.set_root(root)
         heapify(values, root, size)
     return values
