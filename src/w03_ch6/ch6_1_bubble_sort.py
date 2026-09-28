@@ -13,6 +13,9 @@ def bubble_sort(values):
         vis.start_pass(length - 1 - stop, stop + 1)
         for index in range(stop):
             vis.compare(index, index + 1)
+            if values[index] > values[index + 1]:
+                vis.swap(index, index + 1)
+                values[index], values[index + 1] = values[index + 1], values[index]
     return values
 
 
