@@ -24,6 +24,12 @@ def radix_sort_msd(values):
         counts[bucket] += 1
         vis.scan(index, bucket, counts)
     vis.finish_counting()
+    vis.start_accumulate()
+    for bucket in range(1, len(counts)):
+        counts[bucket] += counts[bucket - 1]
+        vis.accumulate_bucket(bucket - 1, bucket, counts)
+    vis.finish_accumulate(counts)
+    ends = list(counts)
     return values
 
 
