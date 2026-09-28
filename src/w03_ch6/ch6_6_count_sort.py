@@ -11,6 +11,9 @@ def count_sort(values):
         return values
     counts = [0] * (max(values) + 1)
     vis.init_counts(counts)
+    for index, value in enumerate(values[:1]):
+        counts[value] += 1
+        vis.count_value(index, value, counts)
     return values
 
 
