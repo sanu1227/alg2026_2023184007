@@ -22,3 +22,18 @@ def test(sort_func, max_count=50000, data_func=None):
         elapsed = perf_counter() - started
         assert (values if result is None else result) == expected
         print(f"{sort_func.__name__}: n={count}, 생성={generation_time:.6f}초, 정렬={elapsed:.6f}초, 검증 통과")
+
+
+def test_generated(sort_func, counts, data_func, value_count_func):
+    for count in counts:
+        started = perf_counter()
+        values = data_func(count)
+        generation_time = perf_counter() - started
+        started = perf_counter()
+        result = sort_func(values)
+        elapsed = perf_counter() - started
+        actual = values if result is None else result
+        assert len(actual) == count
+        assert all(actual[index - 1] <= actual[index] for index in range(1, count))
+        print(f"{sort_func.__name__}: n={count}, 값 종류={value_count_func(count)}, "
+              f"생성={generation_time:.6f}초, 정렬={elapsed:.6f}초, 검증 통과")
