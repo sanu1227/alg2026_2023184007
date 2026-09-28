@@ -30,4 +30,4 @@ def shell_sort(values, gap_sequence=TOKUDA):
 
 
 if __name__ == "__main__":
-    perf.test(shell_sort, 1000000)
+    perf.test(shell_sort, 1000000, data_func=perf.nearly_sorted_values)
