@@ -7,16 +7,21 @@ vis = va.visualizer("bubble_sort")
 
 
 def bubble_sort_improved(values):
-    # 한 번의 순회마다 최댓값 하나가 오른쪽에 확정된다.
-    length = len(values)
-    for stop in range(length - 1, 0, -1):
-        vis.start_pass(length - 1 - stop, stop + 1)
-        for index in range(stop):
+    # 마지막 교환 뒤쪽은 다음 반복에서 제외한다.
+    stop = len(values)
+    pass_number = 0
+    while stop > 1:
+        next_stop = 0
+        vis.start_pass(pass_number, stop)
+        for index in range(stop - 1):
             vis.compare(index, index + 1)
             if values[index] > values[index + 1]:
                 vis.swap(index, index + 1)
                 values[index], values[index + 1] = values[index + 1], values[index]
-        vis.mark_sorted(stop)
+                next_stop = index + 1
+        vis.mark_sorted(next_stop)
+        stop = next_stop
+        pass_number += 1
     return values
 
 
