@@ -9,6 +9,7 @@ vis = va.visualizer("insertion_sort")
 def insertion_sort(values):
     if len(values) > 1:
         vis.mark_end(1)
+        vis.compare(0, 1)
     return values
 
 
