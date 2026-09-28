@@ -34,6 +34,8 @@ def heap_sort(values):
         vis.swap(0, last)
         values[0], values[last] = values[last], values[0]
         vis.set_tree_size(last)
+        heapify(values, 0, last)
+        vis.finish_downheap()
     return values
 
 
