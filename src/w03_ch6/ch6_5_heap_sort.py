@@ -11,7 +11,11 @@ def heapify(values, root, size):
     if left_child >= size:
         return
     larger = left_child
-    vis.compare(root, larger)
+    right_child = left_child + 1
+    if right_child < size:
+        vis.compare(left_child, right_child)
+        if values[right_child] > values[left_child]:
+            larger = right_child
 
 
 def heap_sort(values):
