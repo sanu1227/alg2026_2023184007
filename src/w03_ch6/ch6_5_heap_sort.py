@@ -7,6 +7,7 @@ vis = va.visualizer("heap_sort")
 
 
 def heap_sort(values):
+    vis.build_tree()
     return values
 
 
