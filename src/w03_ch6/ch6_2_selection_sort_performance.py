@@ -11,4 +11,4 @@ def selection_sort(values):
 
 
 if __name__ == "__main__":
-    perf.test(selection_sort, 50000)
+    perf.test(selection_sort, 50000, data_func=perf.nearly_sorted_values)
