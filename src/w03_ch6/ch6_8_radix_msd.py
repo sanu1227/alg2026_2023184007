@@ -49,6 +49,10 @@ def radix_sort_msd(values):
         vis.push(left, right, 1)
         counts = [0] * 27
         vis.init_counts(counts)
+        for index in range(left, min(left + 1, right + 1)):
+            bucket = bucket_at(values[index], 1)
+            counts[bucket] += 1
+            vis.scan(index, bucket, counts)
     return values
 
 
