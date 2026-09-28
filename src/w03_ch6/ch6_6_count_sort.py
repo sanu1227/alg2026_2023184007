@@ -7,6 +7,10 @@ vis = va.visualizer("count_sort")
 
 
 def count_sort(values):
+    if not values:
+        return values
+    counts = [0] * (max(values) + 1)
+    vis.init_counts(counts)
     return values
 
 
