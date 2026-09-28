@@ -22,12 +22,14 @@ def count_sort(values):
     vis.finish_accumulate(counts)
     result = [None] * len(values)
     vis.init_result(result)
-    for index in range(len(values) - 1, len(values) - 2, -1):
+    for index in range(len(values) - 1, -1, -1):
         value = values[index]
         counts[value] -= 1
         target = counts[value]
         result[target] = value
         vis.place_value(index, value, target, counts, result)
+    values[:] = result
+    vis.finish()
     return values
 
 
