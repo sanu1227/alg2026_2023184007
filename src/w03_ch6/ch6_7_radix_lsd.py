@@ -44,7 +44,7 @@ def radix_sort_lsd(values):
         return values
     digit_count = len(str(max(values)))
     divisor = 1
-    for pass_number in range(2):
+    for pass_number in range(digit_count):
         vis.start_digit(pass_number + 1, digit_count, divisor)
         counting_sort_by_digit(values, divisor)
         divisor *= 10
