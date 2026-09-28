@@ -1,7 +1,7 @@
 import pyvisalgo as va
 
 
-DATA_FILE = "data/radix_msd_words.json"
+DATA_FILE = "data/radix_msd_e_to_o_words.json"
 
 vis = va.visualizer("radix_msd_words")
 
