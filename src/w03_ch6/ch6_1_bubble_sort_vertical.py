@@ -22,10 +22,10 @@ def bubble_sort(values):
 
 while va.running():
     data = va.next_data(__file__, data_file=DATA_FILE)
-    array = list(data.array)
+    vertical_array = list(data.array)
 
     vis.setup(data)
-    print("정렬 전:", array)
-    print("정렬 후:", bubble_sort(array))
+    print("정렬 전:", vertical_array)
+    print("정렬 후:", bubble_sort(vertical_array))
     vis.finish()
     vis.wait()
