@@ -1,7 +1,9 @@
+from math import ceil
+
 import perf
 HIBBARD = [2 ** power - 1 for power in range(20, 0, -1)]
 CIURA = [701, 301, 132, 57, 23, 10, 4, 1]
-TOKUDA = [max(1, __import__('math').ceil((9 * (9 / 4) ** power - 4) / 5)) for power in range(17, -1, -1)]
+TOKUDA = [ceil((9 * (9 / 4) ** power - 4) / 5) for power in range(17, -1, -1)]
 GAPS = HIBBARD
 
 
