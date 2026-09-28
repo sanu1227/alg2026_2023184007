@@ -40,14 +40,19 @@ def radix_sort_msd_range(values, left, right, depth):
     vis.finish_result(result)
     values[left:right + 1] = result[left:right + 1]
     vis.copy_back(result)
+
+    # 종료 bucket은 재귀 호출하지 않는다.
+    for bucket in range(1, 27):
+        start = left + ends[bucket - 1]
+        stop = left + ends[bucket] - 1
+        if start < stop:
+            radix_sort_msd_range(values, start, stop, depth + 1)
     return ends
 
 
 def radix_sort_msd(values):
     vis.line_up()
     ends = radix_sort_msd_range(values, 0, len(values) - 1, 0)
-    if ends[4] < ends[5] - 1:
-        radix_sort_msd_range(values, ends[4], ends[5] - 1, 1)
     return values
 
 
