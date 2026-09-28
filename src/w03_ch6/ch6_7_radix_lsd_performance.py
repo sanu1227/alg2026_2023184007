@@ -33,5 +33,13 @@ def radix_sort_lsd(values):
     return values
 
 
+from sort_data import limited_random_values
+
+COUNTS = [1000000, 10000000, 50000000]
+
 if __name__ == "__main__":
-    perf.test(radix_sort_lsd, 1000000)
+    perf.test_generated(
+        radix_sort_lsd, COUNTS,
+        lambda count: limited_random_values(count, max(1, count // 100)),
+        lambda count: max(1, count // 100),
+    )
