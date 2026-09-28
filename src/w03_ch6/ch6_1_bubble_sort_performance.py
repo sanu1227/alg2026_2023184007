@@ -15,4 +15,4 @@ def bubble_sort_improved(values):
 
 
 if __name__ == "__main__":
-    perf.test(bubble_sort_improved, 100)
+    perf.test(bubble_sort_improved, 50000)
