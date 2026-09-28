@@ -24,14 +24,16 @@ def heap_sort(values):
 
 
 def heapify_improved(values, root, size):
+    chosen = values[root]
     while root * 2 + 1 < size:
         child = root * 2 + 1
         if child + 1 < size and values[child + 1] > values[child]:
             child += 1
-        if values[root] >= values[child]:
+        if chosen >= values[child]:
             break
-        values[root], values[child] = values[child], values[root]
+        values[root] = values[child]
         root = child
+    values[root] = chosen
 
 
 def heap_sort_improved(values):
