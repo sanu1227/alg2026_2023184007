@@ -18,6 +18,7 @@ def selection_sort(values):
                 vis.selection(smallest)
         vis.swap(position, smallest)
         values[position], values[smallest] = values[smallest], values[position]
+        vis.mark_sorted(position)
     return values
 
 
