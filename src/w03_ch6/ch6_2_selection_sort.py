@@ -8,7 +8,7 @@ vis = va.visualizer("selection_sort")
 
 def selection_sort(values):
     # 남은 구간에서 최소값의 위치를 찾은 뒤 한 번 이동한다.
-    for position in range(min(2, len(values))):
+    for position in range(len(values)):
         smallest = position
         vis.selection(smallest)
         for scan in range(position + 1, len(values)):
