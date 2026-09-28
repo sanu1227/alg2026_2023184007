@@ -41,6 +41,12 @@ def radix_sort_msd(values):
     vis.finish_result(result)
     values[left:right + 1] = result[left:right + 1]
     vis.copy_back(result)
+    e_start = ends[4]
+    e_stop = ends[5] - 1
+    if e_start < e_stop:
+        left = e_start
+        right = e_stop
+        vis.push(left, right, 1)
     return values
 
 
