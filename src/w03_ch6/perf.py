@@ -4,7 +4,7 @@ from time import perf_counter
 from sort_data import nearly_sorted_values, random_values
 
 
-PERFORMANCE_COUNTS = [100, 1000, 5000, 10000, 50000]
+PERFORMANCE_COUNTS = [100, 1000, 5000, 10000, 50000, 100000, 500000, 1000000]
 
 
 def test(sort_func, max_count=50000, data_func=None):
