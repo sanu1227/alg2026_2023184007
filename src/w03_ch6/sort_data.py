@@ -12,3 +12,8 @@ def nearly_sorted_values(count):
         second = random.randrange(count)
         values[first], values[second] = values[second], values[first]
     return values
+
+
+if __name__ == "__main__":
+    print("일반:", random_values(10))
+    print("거의 정렬:", nearly_sorted_values(10))
