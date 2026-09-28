@@ -32,6 +32,12 @@ def radix_sort_msd(values):
     ends = list(counts)
     result = [None] * len(values)
     vis.init_result(result)
+    for index in range(right, max(right - 1, left - 1), -1):
+        bucket = bucket_at(values[index], 0)
+        counts[bucket] -= 1
+        target = left + counts[bucket]
+        result[target] = values[index]
+        vis.place(index, bucket, target, counts, result)
     return values
 
 
