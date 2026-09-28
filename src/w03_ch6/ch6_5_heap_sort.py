@@ -6,8 +6,19 @@ DATA_FILE = "data/elementary_sort.json"
 vis = va.visualizer("heap_sort")
 
 
+def heapify(values, root, size):
+    left_child = root * 2 + 1
+    larger = left_child
+    vis.compare(root, larger)
+
+
 def heap_sort(values):
     vis.build_tree()
+    size = len(values)
+    if size > 1:
+        root = 0
+        vis.set_root(root)
+        heapify(values, root, size)
     return values
 
 
