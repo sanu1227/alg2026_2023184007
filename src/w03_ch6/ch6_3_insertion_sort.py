@@ -7,7 +7,7 @@ vis = va.visualizer("insertion_sort")
 
 
 def insertion_sort(values):
-    for position in range(1, min(2, len(values))):
+    for position in range(1, len(values)):
         cursor = position
         vis.mark_end(position)
         while cursor > 0:
