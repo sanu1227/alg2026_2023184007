@@ -12,3 +12,7 @@ def bubble_sort_improved(values):
         stop = next_stop
         pass_number += 1
     return values
+
+
+if __name__ == "__main__":
+    perf.test(bubble_sort_improved, 100)
