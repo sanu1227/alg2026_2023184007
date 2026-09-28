@@ -19,22 +19,20 @@ def gaps(count):
 def shell_sort(values):
     for gap in gaps(len(values)):
         vis.set_gap(gap)
-        for offset in range(gap):
-            vis.set_group(offset)
-            for position in range(offset + gap, len(values), gap):
-                chosen = values[position]
-                cursor = position
-                vis.mark_end(position, pick=True)
-                while cursor >= gap:
-                    previous = cursor - gap
-                    vis.compare(previous, cursor)
-                    if values[previous] <= chosen:
-                        break
-                    vis.shift(previous, cursor)
-                    values[cursor] = values[previous]
-                    cursor -= gap
-                vis.shift(position, cursor, pick=True)
-                values[cursor] = chosen
+        for position in range(gap, len(values)):
+            chosen = values[position]
+            cursor = position
+            vis.mark_end(position, pick=True)
+            while cursor >= gap:
+                previous = cursor - gap
+                vis.compare(previous, cursor)
+                if values[previous] <= chosen:
+                    break
+                vis.shift(previous, cursor)
+                values[cursor] = values[previous]
+                cursor -= gap
+            vis.shift(position, cursor, pick=True)
+            values[cursor] = chosen
         vis.finish_gap()
     return values
 
