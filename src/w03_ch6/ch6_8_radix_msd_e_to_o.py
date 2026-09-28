@@ -50,9 +50,20 @@ def radix_sort_msd(values):
     return values
 
 
+def validate_words(words):
+    for word in words:
+        for character in word:
+            if not FIRST_CHAR <= character <= LAST_CHAR:
+                raise ValueError(f"범위 밖 문자: {character!r}, 단어: {word!r}")
+
+
 if __name__ == "__main__":
     datasets = json.loads(DATA_FILE.read_text(encoding="utf-8"))["datasets"]
     words = list(datasets[0]["data"]["array"])
+    validate_words(words)
+    expected = sorted(words)
     print("정렬 전:", words)
     radix_sort_msd(words)
     print("정렬 후:", words)
+    assert words == expected, "MSD 정렬 결과가 올바르지 않습니다."
+    print("입력 범위와 사전순 정렬 검증 통과")
