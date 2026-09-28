@@ -1,3 +1,4 @@
+import sys
 from time import perf_counter
 
 from sort_data import nearly_sorted_values, random_values
@@ -6,7 +7,9 @@ from sort_data import nearly_sorted_values, random_values
 PERFORMANCE_COUNTS = [100, 1000, 5000, 10000, 50000]
 
 
-def test(sort_func, max_count=50000, data_func=random_values):
+def test(sort_func, max_count=50000, data_func=None):
+    if data_func is None:
+        data_func = nearly_sorted_values if "--nearly" in sys.argv else random_values
     for count in PERFORMANCE_COUNTS:
         if count > max_count:
             break
