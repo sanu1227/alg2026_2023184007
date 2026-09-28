@@ -13,6 +13,10 @@ def bucket_at(word, depth):
 
 
 def radix_sort_msd(values):
+    vis.line_up()
+    left = 0
+    right = len(values) - 1
+    vis.push(left, right, 0)
     return values
 
 
