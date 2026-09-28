@@ -3,7 +3,7 @@ import pyvisalgo as va
 
 DATA_FILE = "data/elementary_sort.json"
 
-vis = va.visualizer("bubble_sort")
+vis = va.visualizer("bubble_sort_vertical")
 
 
 def bubble_sort(values):
