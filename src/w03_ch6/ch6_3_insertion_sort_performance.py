@@ -12,3 +12,7 @@ def insertion_sort(values):
             cursor -= 1
         values[cursor] = chosen
     return values
+
+
+if __name__ == "__main__":
+    perf.test(insertion_sort, 50000)
