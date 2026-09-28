@@ -47,12 +47,14 @@ def radix_sort_msd_range(values, left, right, depth):
         stop = left + ends[bucket] - 1
         if start < stop:
             radix_sort_msd_range(values, start, stop, depth + 1)
+    vis.pop()
     return ends
 
 
 def radix_sort_msd(values):
     vis.line_up()
     ends = radix_sort_msd_range(values, 0, len(values) - 1, 0)
+    vis.finish()
     return values
 
 
