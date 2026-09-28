@@ -16,6 +16,8 @@ def selection_sort(values):
             if values[scan] < values[smallest]:
                 smallest = scan
                 vis.selection(smallest)
+        vis.swap(position, smallest)
+        values[position], values[smallest] = values[smallest], values[position]
     return values
 
 
