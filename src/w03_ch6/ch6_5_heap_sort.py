@@ -8,6 +8,8 @@ vis = va.visualizer("heap_sort")
 
 def heapify(values, root, size):
     left_child = root * 2 + 1
+    if left_child >= size:
+        return
     larger = left_child
     vis.compare(root, larger)
 
