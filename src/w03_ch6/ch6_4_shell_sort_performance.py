@@ -12,7 +12,7 @@ def gaps(count):
     return [1]
 
 
-def shell_sort(values, gap_sequence=HIBBARD):
+def shell_sort(values, gap_sequence=TOKUDA):
     for gap in gap_sequence:
         if gap >= len(values):
             continue
@@ -27,3 +27,7 @@ def shell_sort(values, gap_sequence=HIBBARD):
                 cursor -= gap
             values[cursor] = chosen
     return values
+
+
+if __name__ == "__main__":
+    perf.test(shell_sort, 1000000)
