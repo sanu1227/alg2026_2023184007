@@ -17,5 +17,13 @@ def count_sort(values):
     return values
 
 
+from sort_data import limited_random_values
+
+COUNTS = [1000000, 10000000, 50000000]
+
 if __name__ == "__main__":
-    perf.test(count_sort, 1000000)
+    perf.test_generated(
+        count_sort, COUNTS,
+        lambda count: limited_random_values(count, max(1, count // 100)),
+        lambda count: max(1, count // 100),
+    )
