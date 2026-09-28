@@ -16,6 +16,8 @@ def insertion_sort(values):
             if values[previous] > values[cursor]:
                 vis.swap(previous, cursor)
                 values[previous], values[cursor] = values[cursor], values[previous]
+            else:
+                break
             cursor -= 1
     return values
 
