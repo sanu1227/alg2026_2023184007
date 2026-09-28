@@ -2,21 +2,25 @@ import json
 from pathlib import Path
 
 
+FIRST_CHAR = "e"
+LAST_CHAR = "o"
+BUCKET_COUNT = ord(LAST_CHAR) - ord(FIRST_CHAR) + 2
+
 DATA_FILE = Path(__file__).parent / "data/radix_msd_e_to_o_words.json"
 
 def bucket_at(word, depth):
     if depth >= len(word):
         return 0
-    return ord(word[depth]) - ord("a") + 1
+    return ord(word[depth]) - ord(FIRST_CHAR) + 1
 
 
 def radix_sort_msd_range(values, left, right, depth, result):
-    counts = [0] * 27
+    counts = [0] * BUCKET_COUNT
     for index in range(left, right + 1):
         bucket = bucket_at(values[index], depth)
         counts[bucket] += 1
 
-    for bucket in range(1, 27):
+    for bucket in range(1, BUCKET_COUNT):
         counts[bucket] += counts[bucket - 1]
     ends = list(counts)
 
@@ -32,7 +36,7 @@ def radix_sort_msd_range(values, left, right, depth, result):
         result[index] = None
 
     # 종료 bucket은 재귀 호출하지 않는다.
-    for bucket in range(1, 27):
+    for bucket in range(1, BUCKET_COUNT):
         start = left + ends[bucket - 1]
         stop = left + ends[bucket] - 1
         if start < stop:
