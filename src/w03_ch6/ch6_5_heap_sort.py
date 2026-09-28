@@ -29,6 +29,7 @@ def heap_sort(values):
     for root in range(size // 2 - 1, -1, -1):
         vis.set_root(root)
         heapify(values, root, size)
+    vis.finish_build_heap()
     return values
 
 
