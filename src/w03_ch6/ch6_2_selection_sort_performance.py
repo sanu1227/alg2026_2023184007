@@ -8,3 +8,7 @@ def selection_sort(values):
                 smallest = scan
         values[position], values[smallest] = values[smallest], values[position]
     return values
+
+
+if __name__ == "__main__":
+    perf.test(selection_sort, 50000)
