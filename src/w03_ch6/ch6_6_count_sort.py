@@ -16,9 +16,10 @@ def count_sort(values):
         vis.count_value(index, value, counts)
     vis.finish_counting()
     vis.start_accumulate()
-    for bucket in range(1, min(2, len(counts))):
+    for bucket in range(1, len(counts)):
         counts[bucket] += counts[bucket - 1]
         vis.accumulate(bucket - 1, bucket, counts)
+    vis.finish_accumulate(counts)
     return values
 
 
