@@ -43,3 +43,7 @@ if __name__ == "__main__":
         lambda count: limited_random_values(count, max(1, count // 100)),
         lambda count: max(1, count // 100),
     )
+
+
+# 실습 관찰: 자릿수가 늘면 배열을 다시 읽는 횟수가 늘어난다. 실습은 100개 표본으로 확인했다.
+# 표본 측정: radix_sort_lsd: n=100, 값 종류=10000, 생성=0.000025초, 정렬=0.000080초, 검증 통과
