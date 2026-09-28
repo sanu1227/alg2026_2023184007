@@ -39,6 +39,8 @@ def radix_sort_msd(values):
         result[target] = values[index]
         vis.place(index, bucket, target, counts, result)
     vis.finish_result(result)
+    values[left:right + 1] = result[left:right + 1]
+    vis.copy_back(result)
     return values
 
 
