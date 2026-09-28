@@ -23,5 +23,28 @@ def heap_sort(values):
     return values
 
 
+def heapify_improved(values, root, size):
+    while root * 2 + 1 < size:
+        child = root * 2 + 1
+        if child + 1 < size and values[child + 1] > values[child]:
+            child += 1
+        if values[root] >= values[child]:
+            break
+        values[root], values[child] = values[child], values[root]
+        root = child
+
+
+def heap_sort_improved(values):
+    size = len(values)
+    for root in range(size // 2 - 1, -1, -1):
+        heapify_improved(values, root, size)
+    for last in range(size - 1, 0, -1):
+        values[0], values[last] = values[last], values[0]
+        heapify_improved(values, 0, last)
+    return values
+
+
+
 if __name__ == "__main__":
     perf.test(heap_sort, 1000000)
+    perf.test(heap_sort_improved, 1000000)
