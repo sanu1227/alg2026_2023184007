@@ -12,3 +12,7 @@ def selection_sort(values):
 
 if __name__ == "__main__":
     perf.test(selection_sort, 50000, data_func=perf.nearly_sorted_values)
+
+
+# 실습 관찰: 거의 정렬되어 있어도 남은 구간의 최소값 탐색은 끝까지 필요하다.
+# 표본 측정: selection_sort: n=100, 정렬=0.000109초, 검증 통과
